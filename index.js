@@ -12,11 +12,34 @@ for (let number in PATH_IMAGES) {
     let $numberPosition = document.createElement('a');
     let Position = document.createTextNode(numberOfPosition);
 
-    // $numberPosition.classList.add(numberOfPosition);
     $numberPosition.classList.add(number);
     $numberPosition.appendChild(Position);
     $containerPosition.appendChild($numberPosition);
     $positilionList.appendChild($containerPosition);
+}
+
+for(let value in PATH_IMAGES){
+    $botonPositionList = document.getElementsByClassName(value);
+    $botonPositionList[0].addEventListener('click', (event) => {
+        const numberBoton = event.target.className;
+        const BotonActive = document.getElementsByClassName(numberBoton);
+        const BotonsActive = document.getElementsByClassName('list-item-Active');
+
+        const classBotton = BotonActive[0].classList.value;
+        const NumberClassBotton = classBotton[0];
+        Counter = NumberClassBotton;
+        try{
+            for (let i = 0; i < BotonActive.length; i++) {
+                BotonsWithClassActive = BotonsActive[i];
+                BotonsWithClassActive.classList.remove('list-item-Active');
+                BotonActive[0].classList.add('list-item-Active');
+                $IMGcontainer.attributes.src.value = PATH_IMAGES[NumberClassBotton];
+            }
+            }catch{
+            BotonActive[0].classList.add('list-item-Active');
+            $IMGcontainer.attributes.src.value = PATH_IMAGES[NumberClassBotton];
+        }
+    })
 }
 
 function changeImage(event) {
@@ -61,4 +84,3 @@ function changeImage(event) {
 
 $buttonLeft.addEventListener('click', changeImage);
 $buttonRight.addEventListener('click', changeImage);
-
