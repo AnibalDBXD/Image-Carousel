@@ -46,11 +46,12 @@ function changeImage(event) {
     let ImagePositionBefore
     // $IMGcontainer.attributes.src.value = path_IMGs[0]
     if (event.target.id === 'right') {
-        if(Counter === 4){
+        if(Counter >= 4){
             Counter = 0;
         }else{
             Counter++;
         }
+        console.log(Counter)
         $IMGcontainer.attributes.src.value = PATH_IMAGES[Counter];
 
         let ImagePositionAfter = document.getElementsByClassName(Counter);
@@ -63,7 +64,7 @@ function changeImage(event) {
         ImagePositionAfter[0].classList.add('list-item-Active');
         ImagePositionBefore[0].classList.remove('list-item-Active');
     }else{
-        if(Counter === 0){
+        if(Counter <= 0){
             Counter = 4;
         }else{
             Counter--;
